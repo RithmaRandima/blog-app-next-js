@@ -1,5 +1,6 @@
 "use client";
 import BlogItem from "@/Components/BlogItem";
+import BlogList from "@/Components/BlogList";
 import Header from "@/Components/Header";
 import Image from "next/image";
 
@@ -8,7 +9,8 @@ export default function Home() {
     <>
       <h1>
         <Header />
-        <BlogItem />
+        <BlogList />
+        {/* <BlogItem /> */}
       </h1>
     </>
   );

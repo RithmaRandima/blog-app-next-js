@@ -1,27 +1,25 @@
-import { assets, blog_data } from "@/Assets/assets";
 import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa"; // fixed import
 
-import { FaArrowRight } from "react-icons/fa6";
-
-const BlogItem = () => {
+const BlogItem = ({ item }) => {
   return (
-    <div className="max-w-[330px] sm:max-w-[300px]  bg-white border border-black hover:shadow-[-7px_7px_0px_#000]">
+    <div className="max-w-[330px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000]">
       <Image
-        src={blog_data[0].image}
-        alt={blog_data[0].image}
+        src={item.image}
+        alt={item.title}
         width={400}
         height={400}
         className="border-b border-black"
       />
       <p className="ml-5 mt-5 px-1 inline-block bg-black text-white">
-        {blog_data[0].category}
+        {item.category}
       </p>
       <div className="p-5">
         <h5 className="mb-2 text-lg tracking-tight font-medium text-gray-900">
-          {blog_data[0].title}
+          {item.title}
         </h5>
         <p className="mb-3 text-sm tracking-tight text-gray-700">
-          {blog_data[0].descrption}
+          {item.description}
         </p>
         <div className="inline-flex items-center py-2 font-semibold text-center">
           read more <FaArrowRight className="pt-1 ml-1" />
