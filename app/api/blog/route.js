@@ -20,6 +20,14 @@ export async function POST(request) {
   const timeStamps = Date.now();
 
   const image = formData.get("image");
+
+  if (!image || typeof image.arrayBuffer !== "function") {
+    return NextResponse.json(
+      { error: "Invalid image upload" },
+      { status: 400 }
+    );
+  }
+
   const imageByteData = await image.arrayBuffer();
   const buttfer = Buffer.from(imageByteData);
   const path = `./public/${timeStamps}_${image.name}`;
